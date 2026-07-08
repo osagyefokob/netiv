@@ -1,0 +1,2 @@
+ALTER TABLE users ADD COLUMN company_name VARCHAR(255);
+ALTER TABLE users ADD COLUMN country VARCHAR(100);

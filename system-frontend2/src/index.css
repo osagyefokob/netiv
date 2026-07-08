@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-gray-900 dark:text-gray-100 bg-light-bg dark:bg-gray-950;
+  }
+}
+
+@layer components {
+  /* Elevated surface: white cards that read clearly on light-bg page chrome */
+  .app-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200/90 dark:border-gray-700
+      shadow-md shadow-gray-200/80 dark:shadow-gray-900/40;
+  }
+}

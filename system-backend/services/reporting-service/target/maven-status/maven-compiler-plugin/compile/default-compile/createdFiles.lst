@@ -1,0 +1,17 @@
+com\logistics\reportingservice\api\dto\OrderSummaryResponse.class
+com\logistics\reportingservice\api\dto\ProductOutboundAggregateDto.class
+com\logistics\reportingservice\infrastructure\persistence\entity\OrderSummaryEntity.class
+com\logistics\reportingservice\infrastructure\persistence\entity\MovementAggregateEntity.class
+com\logistics\reportingservice\infrastructure\persistence\entity\InventorySnapshotEntity.class
+com\logistics\reportingservice\api\dto\FulfilmentRateDto.class
+com\logistics\reportingservice\infrastructure\persistence\repository\OrderSummaryJpaRepository.class
+com\logistics\reportingservice\ReportingServiceApplication.class
+com\logistics\reportingservice\api\dto\InventorySnapshotResponse.class
+com\logistics\reportingservice\api\dto\MovementAggregateResponse.class
+com\logistics\reportingservice\infrastructure\persistence\repository\InventorySnapshotJpaRepository.class
+com\logistics\reportingservice\infrastructure\kafka\ReportingEventConsumer.class
+com\logistics\reportingservice\infrastructure\config\SecurityConfig.class
+com\logistics\reportingservice\api\dto\MovementTrendDto.class
+com\logistics\reportingservice\infrastructure\persistence\repository\MovementAggregateJpaRepository.class
+com\logistics\reportingservice\api\controller\ReportController.class
+com\logistics\reportingservice\api\dto\OrderSummaryMetricsDto.class

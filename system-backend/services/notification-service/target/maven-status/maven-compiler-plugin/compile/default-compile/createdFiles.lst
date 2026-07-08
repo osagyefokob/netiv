@@ -1,0 +1,10 @@
+com\logistics\notificationservice\infrastructure\messaging\NotificationEventConsumer.class
+com\logistics\notificationservice\infrastructure\persistence\entity\NotificationLogEntity$NotificationLogPk.class
+com\logistics\notificationservice\api\exception\GlobalExceptionHandler.class
+com\logistics\notificationservice\infrastructure\persistence\repository\NotificationTemplateJpaRepository.class
+com\logistics\notificationservice\infrastructure\persistence\repository\NotificationLogJpaRepository.class
+com\logistics\notificationservice\infrastructure\config\SecurityConfig.class
+com\logistics\notificationservice\infrastructure\persistence\entity\NotificationLogEntity.class
+com\logistics\notificationservice\NotificationServiceApplication.class
+com\logistics\notificationservice\api\exception\GlobalExceptionHandler$ErrorResponse.class
+com\logistics\notificationservice\infrastructure\persistence\entity\NotificationTemplateEntity.class
