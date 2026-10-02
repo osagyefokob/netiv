@@ -177,7 +177,7 @@ public class StockService {
             stockLevelRepository.findByProductIdAndLocationId(item.productId(), item.locationId())
                 .ifPresent(level -> {
                     productRepository.findByProductIdAndCompanyId(level.getProductId(), cid).ifPresent(product -> {
-                       if (level.calculateAvailable() <= product.getReorderThreshold()) {
+                       if (level.calculateAvailable() <= product.getReorderThreshold()) { 
                             outboxPublisher.publish(
                                 "inventory.stock.low_stock_alert",
                                 item.productId(),
