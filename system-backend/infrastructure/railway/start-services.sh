@@ -3,6 +3,9 @@ set -e
 
 JAVA_OPTS="-Xms128m -Xmx256m"
 
+echo "Starting nginx..."
+nginx
+
 echo "Starting user-identity-service..."
 java $JAVA_OPTS -jar /app/services/user-identity-service-*.jar &
 PIDS="$!"
@@ -34,5 +37,3 @@ PIDS="$PIDS $!"
 echo "All services started. PIDs: $PIDS"
 
 wait $PIDS
-
-nginx
