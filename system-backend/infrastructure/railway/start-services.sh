@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-JAVA_OPTS="-Xms256m -Xmx512m"
+JAVA_OPTS="-Xms128m -Xmx256m"
 
 echo "Starting user-identity-service..."
 java $JAVA_OPTS -jar /app/services/user-identity-service-*.jar &
