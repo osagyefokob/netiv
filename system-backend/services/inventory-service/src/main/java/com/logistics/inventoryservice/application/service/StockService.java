@@ -61,10 +61,10 @@ public class StockService {
                     "No stock level found for product " + item.productId() +
                     " at location " + item.locationId()));
 
-            if (level.getQuantityAvailable() < item.quantity()) {
+            if level.calculateAvailable() < item.quantity()) {
                 throw new BusinessException("INSUFFICIENT_STOCK",
                     "Insufficient stock for product " + item.productId() +
-                    ": requested=" + item.quantity() + ", available=" + level.getQuantityAvailable());
+                    ": requested=" + item.quantity() + ", available=" + level.calculateAvailable());
             }
 
             level.setQuantityReserved(level.getQuantityReserved() + item.quantity());
@@ -177,7 +177,7 @@ public class StockService {
             stockLevelRepository.findByProductIdAndLocationId(item.productId(), item.locationId())
                 .ifPresent(level -> {
                     productRepository.findByProductIdAndCompanyId(level.getProductId(), cid).ifPresent(product -> {
-                        if (level.getQuantityAvailable() <= product.getReorderThreshold()) {
+                        if level.calculateAvailable() <= product.getReorderThreshold()) {
                             outboxPublisher.publish(
                                 "inventory.stock.low_stock_alert",
                                 item.productId(),
@@ -185,7 +185,7 @@ public class StockService {
                                     "\"payload\":{\"productId\":\"%s\",\"sku\":\"%s\"," +
                                     "\"currentQuantity\":%d,\"reorderThreshold\":%d}}",
                                     product.getProductId(), product.getSku(),
-                                    level.getQuantityAvailable(), product.getReorderThreshold())
+                                    level.calculateAvailable(), product.getReorderThreshold())
                             );
                         }
                     });
