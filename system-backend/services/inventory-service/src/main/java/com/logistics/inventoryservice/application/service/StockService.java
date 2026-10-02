@@ -61,7 +61,7 @@ public class StockService {
                     "No stock level found for product " + item.productId() +
                     " at location " + item.locationId()));
 
-            if level.calculateAvailable() < item.quantity()) {
+            if (level.calculateAvailable() < item.quantity()) {
                 throw new BusinessException("INSUFFICIENT_STOCK",
                     "Insufficient stock for product " + item.productId() +
                     ": requested=" + item.quantity() + ", available=" + level.calculateAvailable());
@@ -177,7 +177,7 @@ public class StockService {
             stockLevelRepository.findByProductIdAndLocationId(item.productId(), item.locationId())
                 .ifPresent(level -> {
                     productRepository.findByProductIdAndCompanyId(level.getProductId(), cid).ifPresent(product -> {
-                        if level.calculateAvailable() <= product.getReorderThreshold()) {
+                       if (level.calculateAvailable() <= product.getReorderThreshold()) {
                             outboxPublisher.publish(
                                 "inventory.stock.low_stock_alert",
                                 item.productId(),
