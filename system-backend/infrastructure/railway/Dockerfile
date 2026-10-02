@@ -18,11 +18,13 @@ COPY . .
 RUN mvn package -DskipTests -B
 
 FROM eclipse-temurin:21-jre-alpine
-RUN apk add --no-cache bash
+RUN apk add --no-cache bash nginx
 
 COPY --from=build /app/services/*/target/*.jar /app/services/
 
 COPY infrastructure/railway/start-services.sh /app/start-services.sh
+COPY infrastructure/railway/nginx.conf /etc/nginx/nginx.conf
+
 RUN chmod +x /app/start-services.sh
 
 CMD ["/app/start-services.sh"]
