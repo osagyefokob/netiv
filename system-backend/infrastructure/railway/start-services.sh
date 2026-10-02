@@ -34,3 +34,5 @@ PIDS="$PIDS $!"
 echo "All services started. PIDs: $PIDS"
 
 wait $PIDS
+
+nginx
